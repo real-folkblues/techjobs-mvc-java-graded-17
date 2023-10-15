@@ -12,6 +12,7 @@ import java.util.HashMap;
 @Controller
 public class HomeController {
 
+    //handler method
     @GetMapping(value = "/")
     public String index(Model model) {
 
@@ -22,6 +23,7 @@ public class HomeController {
         model.addAttribute("actions", actionChoices);
 
         return "index";
+        //renders index.html template in resources/templates
     }
 
 }

@@ -59,6 +59,8 @@ public class ListController {
         model.addAttribute("jobs", jobs);
 
         return "list-jobs";
+        //method fetches from JobData, ListController (above) then renders to list-jobs.html
+        //this method "searches", similar to list method, but will arrive at list-jobs view via a form
     }
 }
 
