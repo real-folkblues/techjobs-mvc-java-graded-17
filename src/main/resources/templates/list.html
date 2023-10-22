@@ -25,13 +25,18 @@
     <td th:each="category : ${tableChoices}">
 
       <ul>
+        <li th: each="item : ${category.value}">
+          <a th:href="@{list/jobs?column=all}">All</a>
+        </li>
 <!--        item represents 1 entry from stored arraylist(jobData)-->
         <li th:each="item : ${category.value}">
           <a th:href="@{/list/jobs(column=${category.key},value=${item})}" th:text="${item}"></a>
 <!--          @{/list/jobs} generates link, (column=$category.key...)} causes thymeleaf to dynamically -->
 <!--          generate query params for URL. paremeters are set by column=, value=
 value params determined dynamically by ${category.key} and ${item}
-URLS are routed to List controller > listbycolumnvalue handler. handler is looking for params
+URLS are routed to List controller > listbycolumnvalue handler. handler is looking for params -->
+
+
         </li>
       </ul>
     </td>
