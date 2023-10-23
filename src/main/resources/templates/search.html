@@ -4,7 +4,8 @@
 </head>
 <body>
 
-<div th:replace="~{fragments :: page-header}"></div>
+<div th:replace="list-jobs :: jobTable(${jobs})"></div>
+
 
 <div class="container body-content">
 
@@ -35,7 +36,14 @@
   </form>
 
   <hr />
-
+    <table class="job-listing" th:each="job : ${jobs}">
+        <tr><th>ID</th><td th:text="${job.id}"></td></tr>
+        <tr><th>Name</th><td th:text="${job.name}"></td></tr>
+        <tr><th>Employer</th><td th:text="${job.employer.value}"></td></tr>
+        <tr><th>Location</th><td th:text="${job.location.value}"></td></tr>
+        <tr><th>Position Type</th><td th:text="${job.positionType.value}"></td></tr>
+        <tr><th>Core Competency</th><td th:text="${job.coreCompetency.value}"></td></tr>
+    </table>
   <!-- TODO #4 - Loop over the search results to display all job fields. -->
 
 </div>

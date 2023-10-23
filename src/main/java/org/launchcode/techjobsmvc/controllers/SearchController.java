@@ -32,7 +32,7 @@ public class SearchController {
         return "search";
     }
 //renders form defined in search html
-    @PostMapping(value = "post")
+    @PostMapping("results")
     public String displaySearchResults(Model model,
        @RequestParam String searchType,
        @RequestParam String searchTerm){
