@@ -1,4 +1,6 @@
 package org.launchcode.techjobsmvc.controllers;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.launchcode.techjobsmvc.models.Job;
 import org.launchcode.techjobsmvc.models.JobData;
@@ -17,6 +19,8 @@ import java.util.HashMap;
 @Controller
 @RequestMapping(value = "list")
 public class ListController {
+
+    private static final Logger logger = LoggerFactory.getLogger(ListController.class);
 
     static HashMap<String, String> columnChoices = new HashMap<>();
     static HashMap<String, Object> tableChoices = new HashMap<>();
@@ -59,6 +63,7 @@ public class ListController {
             model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
         }
         model.addAttribute("jobs", jobs);
+        logger.info("Fetched jobs: " + jobs);
 
         return "list-jobs";
         //method fetches from JobData, ListController (above) then renders to list-jobs.html
